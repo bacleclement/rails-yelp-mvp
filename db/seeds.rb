@@ -9,7 +9,7 @@ require 'faker'
 
 CATEGORIES = ["chinese", "italian", "japanese", "french", "belgian"]
 
-5.times do
+9.times do
   Restaurant.create!(
     name: Faker::StarWars.character,
     address: Faker::Address.street_address,

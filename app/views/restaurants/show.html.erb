@@ -1,16 +1,33 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3">
-      <h2><%= @restaurant.name %></h2>
-      <p><%= @restaurant.address %></p>
-      <p><%= @restaurant.phone_number %></p>
-      <p><%= @restaurant.category %></p>
-      <% @restaurant.reviews.each do |review|%>
-        <%= review.content %>
-        <br>
-      <% end %>
-      <%= link_to "Home", restaurants_path %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= "#{rand(01..14)}.jpg" %>);">
+        <div class="card-name">
+          <h2><%= @restaurant.name %></h2>
+        </div>
+        <div class="card-description">
+          <p><%= @restaurant.address %></p>
+          <p><%= @restaurant.phone_number %></p>
+        </div>
+        <div class="card-category">
+          <p><%= @restaurant.category %></p>
+        </div>
+          <div class="product">
+              <div class="product-star"> <i class="fa fa-star"></i></div>
+              <div class='product-count'><%= rand(0..5) %> </div>
+          </div>
+      </div>
+      <div class="message">
+        <div class="message-body">
+          <% @restaurant.reviews.each do |review|%>
+            <%= review.content %>
+            <%= review.rating %>
+            <br>
+          <% end %>
+        </div>
+      </div>
       <%= link_to "Add a review", new_restaurant_review_path(@restaurant) %>
     </div>
   </div>
 </div>
+
